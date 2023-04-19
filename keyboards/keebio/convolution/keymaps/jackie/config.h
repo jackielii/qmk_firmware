@@ -1,7 +1,7 @@
 #pragma once
 
 // https://github.com/qmk/qmk_firmware/blob/master/docs/tap_hold.md
-#define TAPPING_TERM 150
+#define TAPPING_TERM 250
 #define TAPPING_TERM_PER_KEY
 
 
