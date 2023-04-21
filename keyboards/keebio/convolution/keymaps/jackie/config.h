@@ -4,7 +4,6 @@
 #define TAPPING_TERM 250
 #define TAPPING_TERM_PER_KEY
 
-
 // https://github.com/qmk/qmk_firmware/blob/master/docs/tap_hold.md#hold-on-other-key-press
 // #define HOLD_ON_OTHER_KEY_PRESS
 
@@ -20,4 +19,6 @@
 // outside the tapping term. For instance, holding and releasing LT(2, KC_SPC)
 // without hitting another key will result in nothing happening. With this
 // enabled, it will send KC_SPC instead.
-// #define RETRO_TAPPING
+#define RETRO_TAPPING
+#define RETRO_TAPPING_PER_KEY
+
