@@ -24,13 +24,18 @@ enum custom_keycodes {
 #define JL_WARP (QK_LALT | QK_LGUI | QK_LSFT)
 #define JL_STACK (QK_LALT | QK_LCTL | QK_LSFT)
 
+#define JL_CAPS MT(MOD_LCTL, KC_ESC)
+#define JL_LSPC LT(1, KC_SPC)
+#define JL_RSPC MT(MOD_RGUI, KC_SPC)
+#define JL_LSFT MT(MOD_LSFT, KC_CAPS)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_all(
     JL_COPY_MAC, JL_PASTE_MAC, QK_GESC,     KC_1,    KC_2,    KC_3,    KC_4, KC_5,    KC_6,        KC_7,    KC_8,    KC_9,    KC_0,   KC_MINS, KC_EQL,  KC_BSLS, KC_GRV,  KC_MUTE,
     JL_CUT_MAC,  JL_SALL_MAC,  KC_TAB,      KC_Q,    KC_W,    KC_E,    KC_R, KC_T,    KC_Y,        KC_U,    KC_I,    KC_O,    KC_P,   KC_LBRC, KC_RBRC, KC_BSPC, KC_DEL,
-    KC_F5,       JL_SUP_TAB,   MT(MOD_LCTL, KC_ESC), KC_A,    KC_S,    KC_D, KC_F,    KC_G,        KC_H,    KC_J,    KC_K,    KC_L,   KC_SCLN, KC_QUOT, KC_NUHS, KC_ENT,  KC_PGUP,
-    KC_F7,       KC_F8,        KC_LSFT,     KC_NUBS, KC_Z,    KC_X,    KC_C, KC_V,    KC_B,        KC_N,    KC_M,    KC_COMM, KC_DOT, KC_SLSH, KC_RSFT, KC_UP,   KC_PGDN,
-    JL_STACK,    JL_WARP,      MO(2),       KC_LCTL, KC_LALT, KC_LGUI, LT(1, KC_SPC), MT(MOD_RGUI, KC_SPC), KC_RALT, KC_RCTL, MO(3),  KC_LEFT, KC_DOWN, KC_RGHT
+    KC_F5,       JL_SUP_TAB,   JL_CAPS, KC_A,    KC_S,    KC_D, KC_F,    KC_G,        KC_H,    KC_J,    KC_K,    KC_L,   KC_SCLN, KC_QUOT, KC_NUHS, KC_ENT,  KC_PGUP,
+    KC_F7,       KC_F8,        JL_LSFT,     KC_NUBS, KC_Z,    KC_X,    KC_C, KC_V,    KC_B,        KC_N,    KC_M,    KC_COMM, KC_DOT, KC_SLSH, KC_RSFT, KC_UP,   KC_PGDN,
+    JL_STACK,    JL_WARP,      MO(2),       KC_LCTL, KC_LALT, KC_LGUI, JL_LSPC, JL_RSPC, KC_RALT, KC_RCTL, MO(3),  KC_LEFT, KC_DOWN, KC_RGHT
   ),
 
   [1] = LAYOUT_all(
@@ -72,17 +77,19 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case MT(MOD_LCTL, KC_ESC):
+        case JL_CAPS:
             // prefer hold: want ctrl more than esc, ctrl+? is easer to
             // trigger, less time to hold, e.g. typing ctrl+a,a is easier, but
             // if esc wanted, down & up needs to complete faster
             return PREFER_HOLD;
-        case MT(MOD_RGUI, KC_SPC):
+        case JL_RSPC:
             // prefer tap: want space more than rgui; rgui+? is harder to
             // trigger, need to hold longer. E.g. rgui needs to be held longer,
             // otherwise space will be emitted
             return PREFER_TAP;
-        case LT(1, KC_SPC):
+        case JL_LSFT:
+            return PREFER_HOLD;
+        case JL_LSPC:
             return PREFER_TAP+50;
         default:
             return TAPPING_TERM;
@@ -121,9 +128,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 bool get_retro_tapping(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case LT(1, KC_SPC):
+        case JL_LSPC:
             return true;
-        case MT(MOD_LCTL, KC_ESC):
+        case JL_CAPS:
             return false;
         default:
             return false;
