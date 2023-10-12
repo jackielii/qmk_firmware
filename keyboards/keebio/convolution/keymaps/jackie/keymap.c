@@ -146,6 +146,7 @@ bool get_retro_tapping(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case JL_LSPC:
             return true;
+        case JL_SFT_ESC:
         case JL_CTL_ESC:
             return false;
         default:
