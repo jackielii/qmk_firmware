@@ -9,9 +9,6 @@
 // https://github.com/qmk/qmk_firmware/blob/master/docs/tap_hold.md#hold-on-other-key-press
 // #define HOLD_ON_OTHER_KEY_PRESS
 
-// https://github.com/qmk/qmk_firmware/blob/master/docs/tap_hold.md#ignore-mod-tap-interrupt
-#define IGNORE_MOD_TAP_INTERRUPT
-
 // https://github.com/qmk/qmk_firmware/blob/master/docs/tap_hold.md#permissive-hold
 #define PERMISSIVE_HOLD
 
