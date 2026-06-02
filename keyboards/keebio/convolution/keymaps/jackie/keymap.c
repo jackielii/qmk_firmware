@@ -44,9 +44,9 @@ enum custom_keycodes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_all(
-    KC_MPRV, KC_MNXT, QK_GESC,    KC_1,     KC_2,     KC_3,       KC_4,          KC_5,         KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_BSLS,         KC_GRV,  KC_MPLY,
+    KC_MPRV, KC_MNXT, KC_GRAVE,    KC_1,     KC_2,     KC_3,       KC_4,          KC_5,         KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_BSLS,         KC_GRV,  KC_MPLY,
     KC_F13,  KC_F14,  KC_TAB,     KC_Q,     KC_W,     KC_E,       KC_R,          KC_T,         KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSPC,         KC_DEL,
-    KC_F15,  KC_MCTL, JL_CTL_ESC, KC_A,     KC_S,     KC_D,       KC_F,          KC_G,         KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, KC_NUHS, KC_ENT,          KC_PGUP,
+    KC_MCTL,  KC_F15, JL_CTL_ESC, KC_A,     KC_S,     KC_D,       KC_F,          KC_G,         KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, KC_NUHS, KC_ENT,          KC_PGUP,
     KC_F7,   KC_F8,   KC_LSFT,    KC_NUBS,  KC_Z,     KC_X,       KC_C,          KC_V,         KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, JL_RSFT, KC_UP,           KC_PGDN,
     KC_F9,   JL_WARP, JL_MO3,      KC_LCTL,  KC_LALT,  KC_LGUI,    JL_LSPC,       JL_RSPC,      KC_RGUI, KC_RCTL, MO(4),   KC_LEFT, KC_DOWN, KC_RGHT
   ),
@@ -69,7 +69,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_F23,  KC_F24,  KC_MCTL,    MS_BTN1,  MS_UP,    MS_BTN2,    MS_WHLU,       KC_TRNS,      KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_UP,   MS_UP,   KC_TRNS, KC_BSLS,         KC_TRNS,
    KC_TRNS,  KC_TRNS, KC_CAPS,    MS_LEFT,  MS_DOWN,  MS_RGHT,    MS_WHLD,       KC_TRNS,      MS_WHLL, MS_WHLD, MS_WHLU, MS_WHLR, MS_LEFT, MS_RGHT, KC_TRNS, KC_PENT,         KC_TRNS,
     KC_TRNS, KC_TRNS, KC_MPLY,    KC_TRNS,  KC_MPRV,  KC_MNXT,    KC_VOLD,       KC_VOLU,      KC_MUTE, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, MS_DOWN, KC_TRNS, KC_TRNS,         KC_TRNS,
-    KC_TRNS, KC_TRNS, KC_TRNS,    KC_TRNS,  KC_TRNS,  KC_TRNS,    KC_F18,        KC_CAPS,      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
+    KC_TRNS, KC_TRNS, KC_TRNS,    KC_TRNS,  KC_TRNS,  KC_TRNS,    KC_SPC,        KC_CAPS,      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
   ),
   [4] = LAYOUT_all(
     KC_F21,  KC_F22,  KC_PWR,     KC_BRID,  KC_BRIU,  KC_MCTL,    KC_WWW_SEARCH, KC_TRNS,      KC_TRNS, KC_MPRV, KC_MPLY, KC_MNXT, KC_MUTE, KC_VOLD, KC_VOLU, QK_CLEAR_EEPROM, QK_BOOT, KC_MPLY,
